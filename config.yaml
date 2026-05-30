@@ -1,0 +1,22 @@
+model:
+  name: deeplabv3_resnet50
+  num_classes: 21
+  checkpoint: checkpoints/best_deeplabv3_voc.pth
+
+preprocess:
+  input_size: [320, 320]
+  mean: [0.485, 0.456, 0.406]
+  std: [0.229, 0.224, 0.225]
+
+data:
+  dataset: PASCAL VOC 2012
+  ignore_index: 255
+  data_root: VOCdevkit/VOC2012
+
+visualization:
+  colormap: voc
+  overlay_alpha: 0.5
+  restore_original_size: true
+
+runtime:
+  device: cuda
