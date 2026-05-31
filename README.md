@@ -1,3 +1,11 @@
+<!--
+ * @Author: hatfail 1833943280@qq.com
+ * @Date: 2026-05-31 21:16:14
+ * @LastEditors: hatfail 1833943280@qq.com
+ * @LastEditTime: 2026-05-31 21:25:52
+ * @FilePath: \Project\README.md
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 # DeepLabV3 (ResNet50) PASCAL VOC 2012 复现项目
 
 ## 项目概述
@@ -87,11 +95,13 @@ python train.py
 ### 单张图像
 ```
 python inference_image.py --image path/to/image.jpg --output output.png
+python inference_image.py --image path/to/image_folder
 ```
 会加载 `config.yaml` 指定的 checkpoint（或使用预训练权重），生成带覆盖的可视化结果。
 
 ### 视频
 ```
 python inference_video.py --video path/to/input.mp4 --output path/to/output.mp4
+python inference_video.py --video path/to/video_folder
 ```
 逐帧分割并输出合成的视频。
