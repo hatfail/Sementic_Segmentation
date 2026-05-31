@@ -83,10 +83,6 @@ python train.py
 
 训练过程会打印进度并在验证集 mIoU 提升时保存最优模型到 `checkpoints/best_deeplabv3_voc.pth`。
 
-### 小贴士（显存不足）
-- 若出现 `CUDA Out of Memory`，在 `train.py` 中把 `batch_size` 从 4 调小为 2 或 1。
-- 如果运行在有 GPU 但驱动不兼容的服务器，建议安装与驱动匹配的 PyTorch 版本，或请管理员更新驱动。
-
 ## 推断
 ### 单张图像
 ```
@@ -99,24 +95,3 @@ python inference_image.py --image path/to/image.jpg --output output.png
 python inference_video.py --video path/to/input.mp4 --output path/to/output.mp4
 ```
 逐帧分割并输出合成的视频。
-
-## 性能参考
-- 在本项目配置下（`deeplabv3_resnet50`, input 320x320）：
-  - GPU 训练得到的 best mIoU：约 **73.86%**
-  - 在 CPU 上训练得到的 best mIoU（可作为对比）：约 **74.98%**
-
-这两个数值在数据量与训练轮数受限（10 epochs、未使用大规模数据增强或额外数据集）的情况下属于合理范围。
-
-## 常见问题
-- 日志里显示 `CUDA initialization: The NVIDIA driver on your system is too old`：表示 PyTorch 与驱动版本不兼容，请安装与服务器驱动匹配的 PyTorch 或升级驱动。
-- 若想提高 mIoU，建议：使用更高分辨率输入、数据增强（随机缩放/裁剪/翻转）、更多训练 epoch、使用更大训练集（如 SBD）以及多尺度测试/CRF 后处理。
-
-## 复现实验与报告建议
-在写报告时，建议包括：
-- 数据划分方式（7:1:2）与数量
-- 训练超参（学习率、优化器、batch size、epoch）
-- 评估指标（PA、mIoU、Dice）与最终数值
-- 复现实验中可能导致差异的因素（训练数据、增强、测试时间策略、硬件差异）
-
-## 联系
-如需我帮您：添加训练脚本的 Slurm/SGE 提交模板、加入数据增强、或写实验报告模板，请告诉我具体需求。
