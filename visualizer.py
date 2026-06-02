@@ -1,11 +1,3 @@
-'''
-Author: hatfail 1833943280@qq.com
-Date: 2026-05-30 23:46:24
-LastEditors: hatfail 1833943280@qq.com
-LastEditTime: 2026-05-31 21:04:35
-FilePath: \Project\visualizer.py
-Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
-'''
 import numpy as np
 import cv2
 from PIL import Image
